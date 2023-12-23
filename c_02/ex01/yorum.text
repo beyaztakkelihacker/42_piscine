@@ -1,0 +1,22 @@
+Bu C programı, bir karakter dizisinin belirtilen uzunluğu kadarını başka bir karakter dizisine kopyalayan ft_strncpy fonksiyonunu tanımlar ve bu fonksiyonun farklı çağrılarını main fonksiyonu içinde kullanır. İşleyişi şu adımlarla açıklayalım:
+
+char *ft_strncpy(char *dest, char *src, unsigned int n) fonksiyonu tanımlanır. Bu fonksiyon, üç parametre alır:
+
+char *dest: Hedef diziyi (destination array) ifade eder. Kopyalanan karakterler buraya yerleştirilir.
+char *src: Kaynak diziyi (source array) ifade eder. Buradan karakterler kopyalanır.
+unsigned int n: Kopyalanacak karakter sayısını belirtir.
+Fonksiyon içinde unsigned int i = 0; satırı, bir sayaç değişkeni olan i'yi tanımlar ve başlangıç değeri olarak 0'ı atar.
+
+İlk while döngüsü, src dizisinin sonuna veya belirtilen n değerine ulaşana kadar karakterleri kopyalar. Döngü her adımda, src[i]'yi kontrol eder ve aynı zamanda i değeri n'den küçük olduğu sürece devam eder. Bu şekilde, belirtilen karakter sayısına veya kaynak dizisinin sonuna kadar kopyalama işlemi gerçekleştirilir.
+
+İkinci while döngüsü ise, eğer kopyalanan karakter sayısı n değerine ulaşmamışsa, geri kalan kısmı null karakterlerle doldurarak hedef diziyi tamamlar.
+
+Fonksiyon, return dest; ifadesi ile kopyalanan dizinin başlangıç adresini (pointer'ını) döndürür.
+
+main fonksiyonunda, src adlı bir karakter dizisi tanımlanır ve başlangıç değeri atanır. Ayrıca, dest adlı bir hedef dizisi tanımlanır.
+
+İlk printf satırında, ft_strncpy(dest, src, 2) ifadesi kullanılarak src dizisinin ilk 2 karakteri dest dizisine kopyalanır ve sonuç ekrana yazdırılır.
+
+Benzer şekilde, ikinci ve üçüncü printf satırlarında sırasıyla ft_strncpy(dest, src, 4) ve ft_strncpy(dest, src, 6) ifadeleri kullanılarak belirtilen uzunluklardaki karakter alt dizileri dest dizisine kopyalanır ve sonuçlar ekrana yazdırılır.
+
+Bu program, ft_strncpy fonksiyonunu kullanarak belirli uzunluktaki karakter alt dizilerini kopyalama işleminin nasıl yapılabileceğini göstermektedir.
