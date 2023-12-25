@@ -1,13 +1,17 @@
 #include <stdio.h>
+#include <ctype.h>
 
 // Bir dizideki büyük harf karakterlerini küçük harfe dönüştüren fonksiyon
-char *ft_strlowcase(char *str) {
+char *ft_strlowcase(char *str) 
+{
     int i = 0;
 
-    while (str[i]) {
+    while (str[i]) 
+    {
         // Eğer karakter büyük harfse
-        if (str[i] >= 'A' && str[i] <= 'Z') {
-            str[i] += 32; // ASCII'de büyük harfin küçük harfe dönüşümü
+        if (isupper(str[i])) 
+        {
+            str[i] = tolower(str[i]); // ctype.h fonksiyonları kullanarak küçük harfe dönüşüm
         }
         i++;
     }
@@ -15,7 +19,8 @@ char *ft_strlowcase(char *str) {
     return str; // Dönüştürülmüş diziyi geri döndür
 }
 
-int main() {
+int main() 
+{
     char str[] = "BEYAZTAKKELİHACKER";
     
     printf("Original: %s\n", str); // Orijinal diziyi ekrana yazdır
