@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 // Bir dizideki küçük harf karakterlerini büyük harfe dönüştüren fonksiyon
 char *ft_strupcase(char *str)
@@ -8,9 +9,9 @@ char *ft_strupcase(char *str)
     while (str[i])
     {
         // Eğer karakter küçük harfse
-        if (str[i] >= 'a' && str[i] <= 'z')
+        if (islower(str[i]))
         {
-            str[i] -= 32; // ASCII'de küçük harfin büyük harfe dönüşümü
+            str[i] = toupper(str[i]); // Küçük harfi büyük harfe dönüştür
         }
         i++;
     }
