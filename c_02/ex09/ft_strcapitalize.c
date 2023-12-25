@@ -1,31 +1,24 @@
-#include <stdio.h>
-
-char *ft_strlowcase(char *str) {
-    int i = 0;
-    while (str[i]) {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        i++;
-    }
-    return str;
-}
-
-char *ft_strcapitalize(char *str) {
+char *ft_strcapitalize(char *str) 
+{
     int i = 0;
     int i1 = 1;
-    ft_strlowcase(str);
-    while (str[i]) {
-        if (str[i] >= 'a' && str[i] <= 'z') {
-            if (i1 == 1) {
-                str[i] -= 32;
+
+    while (str[i]) 
+    {
+        if (isalpha(str[i])) 
+        {
+            if (i1 == 1) 
+            {
+                str[i] = toupper(str[i]);
                 i1 = 0;
             }
-        } else if (str[i] >= '0' && str[i] <= '9') {
-            i1 = 0;
-        } else {
+        } 
+        else 
+        {
             i1 = 1;
         }
         i++;
     }
+
     return str;
 }
