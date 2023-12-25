@@ -1,12 +1,15 @@
-#include <stdio.h>
-
-char *ft_strlowcase(char *str) {
+char *ft_strlowcase(char *str) 
+{
     int i = 0;
-    while (str[i]) {
-        if (str[i] >= 'A' && str[i] <= 'Z') {
-            str[i] += 32;
+
+    while (str[i])
+    {
+        if (isupper(str[i])) 
+        {
+            str[i] = tolower(str[i]);
         }
         i++;
     }
+
     return str;
 }
