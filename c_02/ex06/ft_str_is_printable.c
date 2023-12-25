@@ -1,14 +1,12 @@
-#include <stdio.h>
-
-int ft_str_is_printable(char *str) {
-    int i = 0;
-
-    while (str[i]) {
-        if (str[i] < 32 || str[i] > 126) {
+int ft_str_is_printable(char *str) 
+{
+    while (*str) 
+    {
+        if (!isprint(*str))
+        {
             return 0;
         }
-        i++;
+        str++;
     }
-
     return 1;
 }
