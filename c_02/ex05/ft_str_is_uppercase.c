@@ -1,8 +1,9 @@
-#include <stdio.h>
-
-int ft_str_is_uppercase(char *str) {
-    while (*str) {
-        if (!(*str >= 'A' && *str <= 'Z')) {
+int ft_str_is_uppercase(char *str) 
+{
+    while (*str)
+        {
+        if (!isupper(*str))
+        {
             return 0;
         }
         str++;
