@@ -1,24 +1,22 @@
 #include <stdio.h>
+#include <string.h>
 
 // src dizisini dest dizisine kopyalayan fonksiyon
-char *ft_strcpy(char *dest, char *src) {
-    int i = 0;
-
-    // src dizisinin sonuna kadar karakterleri kopyala
-    while (src[i]) {
-        dest[i] = src[i];
-        i++;
-    }
-    dest[i] = '\0'; // hedef dizisine null karakter ekle
-
-    return dest; // kopyalanan diziyi döndür
+char *ft_strcpy(char *dest, const char *src) {
+    return strcpy(dest, src); // strcpy fonksiyonu kullanarak src'yi dest'e kopyala
 }
 
 int main() {
     char src[] = "beyaz takkeli hacker";
     char dest[] = "kara takkeli hacker";
 
-    printf("%s\n", ft_strcpy(dest, src)); // kopyalama işlemini yap ve sonucu ekrana yazdır
+    // ft_strcpy fonksiyonunu çağırarak kopyalama işlemini gerçekleştir
+    printf("Source: %s\n", src); // Kaynak diziyi ekrana yazdır
+    printf("Destination (before): %s\n", dest); // Hedef diziyi (önce) ekrana yazdır
+
+    ft_strcpy(dest, src); // ft_strcpy fonksiyonu ile src'yi dest'e kopyala
+
+    printf("Destination (after): %s\n", dest); // Hedef diziyi (sonra) ekrana yazdır
 
     return 0;
 }
