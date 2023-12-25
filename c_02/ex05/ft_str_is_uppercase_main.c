@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <ctype.h>
 
 // Bir dizide sadece büyük harf karakterlerinin olup olmadığını kontrol eden fonksiyon
-int ft_str_is_uppercase(char *str) {
-    while (*str) {
-        // Karakter, 'A' ile 'Z' aralığında değilse
-        if (!(*str >= 'A' && *str <= 'Z')) {
+int ft_str_is_uppercase(char *str) 
+{
+    while (*str) 
+    {
+        // Karakter, büyük harf değilse
+        if (!isupper(*str))
+        {
             return 0; // 0 döndür ve işlemi sonlandır (büyük harf dışında bir karakter bulundu)
         }
         str++; // Bir sonraki karaktere geç
@@ -12,7 +16,8 @@ int ft_str_is_uppercase(char *str) {
     return 1; // Fonksiyonun bu noktaya ulaşması, sadece büyük harf karakterleri içerildiği anlamına gelir
 }
 
-int main() {
+int main()
+{
     // Fonksiyonu test et
     printf("%d\n", ft_str_is_uppercase("ABCDEFGH")); // 1 (sadece büyük harf karakterleri içeriyor)
     printf("%d\n", ft_str_is_uppercase("ABCDEFGHaI")); // 0 (büyük harf olmayan bir karakter içeriyor)
