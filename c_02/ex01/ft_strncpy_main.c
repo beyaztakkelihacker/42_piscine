@@ -1,31 +1,25 @@
 #include <stdio.h>
+#include <string.h>
 
 // src dizisinin belirtilen uzunluk kadarını dest dizisine kopyalayan fonksiyon
-char *ft_strncpy(char *dest, char *src, unsigned int n) {
-    unsigned int i = 0;
-
-    // src dizisinin sonuna veya n değerine ulaşana kadar karakterleri kopyala
-    while (src[i] && i < n) {
-        dest[i] = src[i];
-        i++;
-    }
-
-    // Eğer kopyalanan karakter sayısı n değerine ulaşmamışsa, kalan kısmı null karakterlerle doldur
-    while (i < n) {
-        dest[i] = '\0';
-        i++;
-    }
-
-    return dest;
+char *ft_strncpy(char *dest, const char *src, size_t n) {
+    return strncpy(dest, src, n); // strncpy fonksiyonunu kullanarak kopyalama yap
 }
 
 int main() {
-    char src[] = "beyaztakkelihacker";
-    char dest[10];
+    char src[] = "beyaztakkelihacker"; // Kaynak dizisi
+    char dest[10]; // Hedef dizisi (maksimum 10 karakter)
 
-    printf("%s\n", ft_strncpy(dest, src, 2)); // İlk 2 karakteri kopyala
-    printf("%s\n", ft_strncpy(dest, src, 4)); // İlk 4 karakteri kopyala
-    printf("%s\n", ft_strncpy(dest, src, 6)); // İlk 6 karakteri kopyala
+    printf("Source: %s\n", src); // Orijinal diziyi ekrana yazdır
+
+    // İlk 2 karakteri kopyala
+    printf("Copied (2 chars): %s\n", ft_strncpy(dest, src, 2));
+
+    // İlk 4 karakteri kopyala
+    printf("Copied (4 chars): %s\n", ft_strncpy(dest, src, 4));
+
+    // İlk 6 karakteri kopyala
+    printf("Copied (6 chars): %s\n", ft_strncpy(dest, src, 6));
 
     return 0;
 }
