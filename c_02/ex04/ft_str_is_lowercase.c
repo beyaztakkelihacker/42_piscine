@@ -1,8 +1,9 @@
-#include <stdio.h>
-
-int ft_str_is_lowercase(char *str) {
-    while (*str) {
-        if (*str < 'a' || *str > 'z') {
+int ft_str_is_lowercase(char *str) 
+{
+    while (*str) 
+    {
+        if (!islower(*str))
+        {
             return 0;
         }
         str++;
